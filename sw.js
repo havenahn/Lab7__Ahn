@@ -43,8 +43,8 @@ self.addEventListener('fetch', function (event) {
   // B7. TODO - Respond to the event by opening the cache using the name we gave
   //            above (CACHE_NAME)
   event.respondWith(
-    caches.open('lab-7-starter').then(function(cache){
-      return cache.match(event.request).then(function(response){
+    caches.open('lab-7-starter').then(function (cache){
+      return cache.match(event.request).then(function (response){
         return response || fetch(event.request).then(function (fetched){
           cache.put(event.request, fetched.clone());
           return fetched;
